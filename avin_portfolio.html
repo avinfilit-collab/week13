@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2b0713">
+  <meta name="description" content="The personal portfolio of Avin Filit — business, creativity, sport and ambition.">
+  <title>Avin Filit — Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --wine:#4b1024; --wine-deep:#260711; --wine-mid:#6e2038;
+      --cream:#f4eee8; --paper:#fbf8f4; --gold:#c6a477;
+      --muted:#bca9a7; --ink:#2b1119; --line:rgba(255,255,255,.15);
+      --serif:'Playfair Display', Georgia, serif; --sans:'DM Sans',Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .topbar{position:absolute;top:0;left:0;width:100%;z-index:5;padding:27px 7%;display:flex;align-items:center;justify-content:space-between;color:#fff}
+    .logo{font-size:13px;letter-spacing:.28em;font-weight:700}
+    .logo span{color:var(--gold)}
+    nav{display:flex;gap:31px;align-items:center}
+    nav a{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#eadfe0;transition:.25s}
+    nav a:hover{color:var(--gold)}
+    .hero{min-height:740px;position:relative;overflow:hidden;display:flex;align-items:center;background:
+      radial-gradient(ellipse at 78% 42%,rgba(150,73,91,.32),transparent 32%),
+      radial-gradient(ellipse at 15% 90%,rgba(117,45,64,.38),transparent 40%),
+      linear-gradient(115deg,#21060f 0%,#3a0b1b 52%,#58172d 100%);color:#fff;padding:145px 10% 110px}
+    .hero:before{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(198,164,119,.25);border-radius:50%;right:9%;top:16%;box-shadow:0 0 0 35px rgba(198,164,119,.025),0 0 0 75px rgba(198,164,119,.02)}
+    .hero:after{content:"A";position:absolute;right:16%;top:7%;font:500 clamp(330px,43vw,590px)/1 var(--serif);color:rgba(255,255,255,.035);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:760px}
+    .eyebrow{color:var(--gold);font-size:10px;letter-spacing:.34em;text-transform:uppercase;font-weight:600}
+    h1{font:400 clamp(64px,10vw,126px)/.98 var(--serif);letter-spacing:-.045em;margin:24px 0 22px}
+    h1 em{font-weight:400;color:#d8b99a}
+    .hero-copy{max-width:510px;color:#e0d1d0;font-size:16px;line-height:1.9}
+    .hero-actions{display:flex;gap:15px;align-items:center;margin-top:37px;flex-wrap:wrap}
+    .button{display:inline-flex;align-items:center;justify-content:center;padding:14px 23px;border:1px solid var(--gold);color:#fff;font-size:10px;letter-spacing:.19em;text-transform:uppercase;transition:.25s}
+    .button.primary{background:var(--gold);color:#28101a}
+    .button:hover{transform:translateY(-3px);background:#dfc6a6;color:#28101a}
+    .hero-note{position:absolute;bottom:35px;right:7%;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#c6b3b1}
+    .section{padding:105px 10%;max-width:1440px;margin:auto}
+    .section-kicker{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#98677a;font-weight:700}
+    h2{font:400 clamp(38px,5vw,58px)/1.12 var(--serif);margin:13px 0 24px;color:var(--wine-deep)}
+    .intro{max-width:690px;color:#77666a;font-size:15px}
+    .about-grid{display:grid;grid-template-columns:1fr .8fr;gap:90px;align-items:center}
+    .quote-card{min-height:330px;background:linear-gradient(145deg,#521329,#2b0713);color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .quote-card:after{content:"“";position:absolute;right:22px;top:-50px;font:260px var(--serif);color:rgba(255,255,255,.07)}
+    .quote-card blockquote{font:400 29px/1.4 var(--serif);margin:0;position:relative;z-index:1}
+    .quote-card small{color:var(--gold);font-size:9px;letter-spacing:.23em;text-transform:uppercase}
+    .interests{background:#f1e9e3}
+    .interest-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
+    .interest-head .intro{max-width:390px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .interest-card{background:var(--paper);padding:34px 30px 38px;border:1px solid #e5d9d2;min-height:260px;transition:.3s}
+    .interest-card:hover{transform:translateY(-7px);box-shadow:0 20px 45px rgba(58,17,32,.09)}
+    .number{font:italic 19px var(--serif);color:#b58b78}
+    .interest-card h3{font:500 27px var(--serif);color:var(--wine);margin:25px 0 12px}
+    .interest-card p{font-size:13px;color:#7d6e70;margin:0}
+    .journey{display:grid;grid-template-columns:.7fr 1fr;gap:90px}
+    .journey-list{border-top:1px solid #dfd1cb}
+    .journey-item{display:grid;grid-template-columns:115px 1fr;gap:25px;padding:24px 0;border-bottom:1px solid #dfd1cb}
+    .journey-item .tag{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#9c7180;padding-top:5px}
+    .journey-item h3{font:500 22px var(--serif);margin:0 0 6px;color:var(--wine)}
+    .journey-item p{font-size:13px;color:#786a6b;margin:0}
+    .contact{background:var(--wine-deep);color:#fff;text-align:center;padding:100px 7%}
+    .contact h2{color:#fff}
+    .contact p{color:#d1bdc0;max-width:500px;margin:0 auto 30px;font-size:14px}
+    .contact .button{margin:5px}
+    footer{background:#1c050c;color:#a89194;padding:23px 7%;display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+    .gold-line{height:1px;width:54px;background:var(--gold);margin:23px 0}
+    @media(max-width:800px){
+      .topbar{padding:22px 6%}.topbar nav{gap:14px}.topbar nav a{font-size:9px;letter-spacing:.08em}
+      .hero{min-height:690px;padding:130px 7% 90px}.hero:before{right:-35%;top:22%}
+      .section{padding:75px 7%}.about-grid,.journey{grid-template-columns:1fr;gap:38px}
+      .quote-card{min-height:260px}.cards{grid-template-columns:1fr}.interest-card{min-height:0}
+      .interest-head{display:block}.interest-head .intro{margin-top:0}
+    }
+    @media(max-width:480px){
+      .topbar{align-items:flex-start}.topbar nav{display:grid;grid-template-columns:repeat(2,auto);gap:5px 14px}
+      .hero{min-height:650px}.hero-note{right:7%;font-size:8px}
+      .journey-item{grid-template-columns:82px 1fr;gap:14px}
+      footer{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#home">AVIN <span>FILIT</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a><a href="#interests">Interests</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="eyebrow">Personal portfolio · Almaty</div>
+        <h1>Avin<br><em>Filit.</em></h1>
+        <p class="hero-copy">A curious mind with a passion for business, personal growth, style and sport. Always learning, creating and moving forward.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#about">Discover my story</a>
+          <a class="button" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-note">Ambition · Elegance · Discipline</div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="about-grid">
+        <div>
+          <div class="section-kicker">01 — A little about me</div>
+          <h2>Driven by curiosity.<br>Defined by ambition.</h2>
+          <p class="intro">I am a student at KIMEP University with a strong interest in business, fashion, creativity and personal development. I enjoy discovering new ideas, taking on challenges and turning inspiration into action.</p>
+          <div class="gold-line"></div>
+          <p class="intro">For me, growth is a process: staying curious, being disciplined and having the confidence to try something new.</p>
+        </div>
+        <aside class="quote-card">
+          <blockquote>“Create a life that feels as good as it looks.”</blockquote>
+          <small>A personal philosophy</small>
+        </aside>
+      </div>
+    </section>
+
+    <section class="interests" id="interests">
+      <div class="section">
+        <div class="interest-head">
+          <div><div class="section-kicker">02 — What inspires me</div><h2>Interests & passions</h2></div>
+          <p class="intro">Different interests, one mindset: keep learning and give every goal your best.</p>
+        </div>
+        <div class="cards">
+          <article class="interest-card"><div class="number">01 / Sport</div><h3>Volleyball</h3><p>Teamwork, communication and competition. Being a team captain has taught me to support others and take responsibility.</p></article>
+          <article class="interest-card"><div class="number">02 / Discipline</div><h3>Boxing</h3><p>Boxing helps me build focus, confidence and consistency — qualities that matter both in sport and in everyday life.</p></article>
+          <article class="interest-card"><div class="number">03 / Creativity</div><h3>Business & style</h3><p>I enjoy exploring business ideas, fashion and visual details, and finding creative ways to bring concepts to life.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="journey">
+        <div><div class="section-kicker">03 — My path</div><h2>Learning by doing.</h2><p class="intro">Every experience is a chance to develop a new skill, meet a challenge and understand what I can achieve.</p></div>
+        <div class="journey-list">
+          <article class="journey-item"><div class="tag">Education</div><div><h3>KIMEP University</h3><p>Developing my knowledge and exploring new academic and professional interests.</p></div></article>
+          <article class="journey-item"><div class="tag">Leadership</div><div><h3>Volleyball team captain</h3><p>Building teamwork, responsibility and communication through sport.</p></div></article>
+          <article class="journey-item"><div class="tag">Entrepreneurship</div><div><h3>Creative business project</h3><p>Exploring a stationery-corner business idea, from its target audience to its products.</p></div></article>
+          <article class="journey-item"><div class="tag">Personal growth</div><div><h3>Always improving</h3><p>Staying open to new experiences and working towards ambitious goals.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-kicker">04 — Let's connect</div>
+      <h2>Every connection<br>starts somewhere.</h2>
+      <p>Thank you for visiting my portfolio. I am always open to new ideas, conversations and opportunities to learn.</p>
+      <a class="button primary" href="mailto:YOUR_KIMEP_EMAIL">Email me</a>
+      <a class="button" href="#home">Back to top ↑</a>
+    </section>
+  </main>
+  <footer><span>© 2026 Avin Filit</span><span>Made with ambition & intention</span></footer>
+</body>
+</html>
